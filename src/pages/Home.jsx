@@ -7,6 +7,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
 
+  //fetching data on first render
   async function fetchProductData() {
     setLoading(true);
 

@@ -7,11 +7,16 @@ const Product = ({post}) => {
   const {cart} = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  //handled from CartSlice
   const addToCart = () => {
     dispatch(add(post));
+    // console.log(cart);
+    // console.log(post)
+    // console.log(cart,"post hogya");
     toast.success("Item added to Cart");
   }
 
+  //removed using post.id
   const removeFromCart = () => {
     dispatch(remove(post.id));
     toast.error("Item removed from Cart");
@@ -36,6 +41,7 @@ const Product = ({post}) => {
         </div>
         
         {
+          //some functions checks whether the id is matched returns boolean
           cart.some((p) => p.id == post.id) ?
           (<button
           className="text-gray-700 border-2 border-gray-700 rounded-full font-semibold 
@@ -55,7 +61,6 @@ const Product = ({post}) => {
           </button>)
         }
       </div>
-     
 
     </div>
   );
